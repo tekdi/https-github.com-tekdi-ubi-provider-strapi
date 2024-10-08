@@ -1,0 +1,99 @@
+{
+  "collectionName": "components_composite_attributes_eligibilities",
+  "info": {
+    "displayName": "eligibility",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "all"
+      ]
+    },
+    "class": {
+      "type": "json"
+    },
+    "marks": {
+      "type": "enumeration",
+      "enum": [
+        "Greater than 50%",
+        "Greater than 60%",
+        "Greater than 70%",
+        "Greater than 80%",
+        "Greater than 90%",
+        "Not Applicable"
+      ]
+    },
+    "attendance": {
+      "type": "enumeration",
+      "enum": [
+        "Greater than 50%",
+        "Greater than 60%",
+        "Greater than 70%",
+        "Greater than 80%",
+        "Greater than 90%",
+        "Not Applicable"
+      ]
+    },
+    "min_qualification": {
+      "type": "enumeration",
+      "enum": [
+        "Undergrade",
+        "Post Grad",
+        "PHD",
+        "Not Applicable"
+      ]
+    },
+    "field_of_study": {
+      "type": "json"
+    },
+    "annual_income": {
+      "type": "enumeration",
+      "enum": [
+        "Below ₹1,00,000",
+        "Rs 1,00,001 - Rs 2,50,000",
+        "Rs 2,50,001 - Rs 5,00,000",
+        "Rs 5,00,001 - Rs 7,50,000"
+      ]
+    },
+    "caste": {
+      "type": "json"
+    },
+    "disability": {
+      "type": "boolean"
+    },
+    "student_type": {
+      "type": "enumeration",
+      "enum": [
+        "Day Scholar",
+        "Hostler",
+        "Both",
+        "Not Applicable"
+      ]
+    },
+    "age": {
+      "type": "enumeration",
+      "enum": [
+        "From 5 years - 8 years",
+        "From 9 years - 10 years",
+        "From 11 years - 13 years",
+        "From 14 years - 16 years",
+        "From 16 years - 18 years",
+        "Not Applicable"
+      ]
+    },
+    "eligible_children_limit": {
+      "type": "enumeration",
+      "enum": [
+        "Only 1",
+        "Only 2",
+        "Only 3",
+        "Not applicable"
+      ]
+    }
+  }
+}

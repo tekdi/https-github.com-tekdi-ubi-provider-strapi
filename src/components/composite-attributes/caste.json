@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_composite_attributes_castes",
+  "info": {
+    "displayName": "caste"
+  },
+  "options": {},
+  "attributes": {
+    "caste_name": {
+      "type": "enumeration",
+      "enum": [
+        "sc",
+        "st",
+        "general",
+        "obc"
+      ]
+    }
+  }
+}

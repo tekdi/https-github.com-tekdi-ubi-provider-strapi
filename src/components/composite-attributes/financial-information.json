@@ -19,11 +19,14 @@
         "Not Applicable"
       ]
     },
-    "amt_per_beneficiary": {
-      "type": "json"
-    },
     "max_bebeficiary": {
       "type": "integer"
+    },
+    "amt_per_beneficiary": {
+      "displayName": "amt_per_beneficiary",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.amt-per-beneficiary"
     }
   }
 }

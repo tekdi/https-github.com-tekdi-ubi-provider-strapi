@@ -9,7 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -65,7 +65,7 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "scholarships": {
+    "benefits": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::scholarship.scholarship",

@@ -5,7 +5,7 @@ export interface ApiScholarshipScholarship extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'scholarship';
     pluralName: 'scholarships';
-    displayName: 'Scholarship';
+    displayName: 'benefit';
     description: '';
   };
   options: {
@@ -14,15 +14,10 @@ export interface ApiScholarshipScholarship extends Struct.CollectionTypeSchema {
   attributes: {
     name: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    provider: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
     currency: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
     application_deadline: Schema.Attribute.Date;
     valid_till: Schema.Attribute.Date;
-    sponsors: Schema.Attribute.JSON;
     extended_deadline: Schema.Attribute.Date;
     eligibility: Schema.Attribute.Component<
       'composite-attributes.eligibility',
@@ -33,6 +28,12 @@ export interface ApiScholarshipScholarship extends Struct.CollectionTypeSchema {
       false
     >;
     auto_renewal: Schema.Attribute.Boolean;
+    sponsors: Schema.Attribute.Component<'composite-attributes.sponsor', true>;
+    provider: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    is_published: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -489,7 +490,6 @@ export interface PluginUsersPermissionsUser
     displayName: 'User';
   };
   options: {
-    timestamps: true;
     draftAndPublish: false;
   };
   attributes: {
@@ -518,7 +518,7 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    scholarships: Schema.Attribute.Relation<
+    benefits: Schema.Attribute.Relation<
       'oneToMany',
       'api::scholarship.scholarship'
     >;

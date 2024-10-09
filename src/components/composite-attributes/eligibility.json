@@ -14,9 +14,6 @@
         "all"
       ]
     },
-    "class": {
-      "type": "json"
-    },
     "marks": {
       "type": "enumeration",
       "enum": [
@@ -48,9 +45,6 @@
         "Not Applicable"
       ]
     },
-    "field_of_study": {
-      "type": "json"
-    },
     "annual_income": {
       "type": "enumeration",
       "enum": [
@@ -59,9 +53,6 @@
         "Rs 2,50,001 - Rs 5,00,000",
         "Rs 5,00,001 - Rs 7,50,000"
       ]
-    },
-    "caste": {
-      "type": "json"
     },
     "disability": {
       "type": "boolean"
@@ -93,6 +84,58 @@
         "Only 2",
         "Only 3",
         "Not applicable"
+      ]
+    },
+    "caste": {
+      "displayName": "caste",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.caste"
+    },
+    "field_of_study": {
+      "displayName": "field-of_study",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.field-of-study"
+    },
+    "class": {
+      "displayName": "class",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.class"
+    },
+    "domicile": {
+      "type": "enumeration",
+      "enum": [
+        "All",
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "West Bengal"
       ]
     }
   }

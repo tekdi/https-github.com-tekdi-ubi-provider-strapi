@@ -4,7 +4,7 @@
   "info": {
     "singularName": "scholarship",
     "pluralName": "scholarships",
-    "displayName": "Scholarship",
+    "displayName": "benefit",
     "description": ""
   },
   "options": {
@@ -18,12 +18,6 @@
     "description": {
       "type": "text"
     },
-    "provider": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "scholarships"
-    },
     "currency": {
       "type": "string"
     },
@@ -35,9 +29,6 @@
     },
     "valid_till": {
       "type": "date"
-    },
-    "sponsors": {
-      "type": "json"
     },
     "extended_deadline": {
       "type": "date"
@@ -56,6 +47,22 @@
     },
     "auto_renewal": {
       "type": "boolean"
+    },
+    "sponsors": {
+      "displayName": "sponsor",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.sponsor"
+    },
+    "provider": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "benefits"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

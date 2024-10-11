@@ -33,8 +33,14 @@
     "submission_id": {
       "type": "string"
     },
+    "benefit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::scholarship.scholarship",
+      "inversedBy": "applicants"
+    },
     "content_id": {
-      "type": "string"
+      "type": "integer"
     }
   }
 }

@@ -63,6 +63,12 @@
     "is_published": {
       "type": "boolean",
       "default": false
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "benefit"
     }
   }
 }

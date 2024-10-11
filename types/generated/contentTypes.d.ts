@@ -19,7 +19,11 @@ export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
     order_id: Schema.Attribute.String;
     transaction_id: Schema.Attribute.String;
     submission_id: Schema.Attribute.String;
-    content_id: Schema.Attribute.String;
+    benefit: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::scholarship.scholarship'
+    >;
+    content_id: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -97,6 +101,10 @@ export interface ApiScholarshipScholarship extends Struct.CollectionTypeSchema {
       'plugin::users-permissions.user'
     >;
     is_published: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    applicants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::application.application'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

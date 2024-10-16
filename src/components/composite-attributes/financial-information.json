@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_composite_attributes_financial_informations",
+  "info": {
+    "displayName": "financial_information",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "parent_occupation": {
+      "type": "enumeration",
+      "enum": [
+        "Farmer (Krishisevak)",
+        "Cleanliness worker (Safai Karamchari)",
+        "Defence personel",
+        "Manual Scavengers",
+        "Tanners & Flayers",
+        "Waste Pickers",
+        "Hazardous Cleaning",
+        "Not Applicable"
+      ]
+    },
+    "max_bebeficiary": {
+      "type": "integer"
+    },
+    "amt_per_beneficiary": {
+      "displayName": "amt_per_beneficiary",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.amt-per-beneficiary"
+    }
+  }
+}

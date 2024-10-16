@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scholarships",
+  "info": {
+    "singularName": "scholarship",
+    "pluralName": "scholarships",
+    "displayName": "benefit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "application_deadline": {
+      "type": "date"
+    },
+    "valid_till": {
+      "type": "date"
+    },
+    "extended_deadline": {
+      "type": "date"
+    },
+    "eligibility": {
+      "displayName": "eligibility",
+      "type": "component",
+      "repeatable": false,
+      "component": "composite-attributes.eligibility"
+    },
+    "financial_information": {
+      "displayName": "financial_information",
+      "type": "component",
+      "repeatable": false,
+      "component": "composite-attributes.financial-information"
+    },
+    "auto_renewal": {
+      "type": "boolean"
+    },
+    "sponsors": {
+      "displayName": "sponsor",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.sponsor"
+    },
+    "provider": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "benefits"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::application.application",
+      "mappedBy": "benefit"
+    },
+    "long_description": {
+      "type": "text"
+    }
+  }
+}

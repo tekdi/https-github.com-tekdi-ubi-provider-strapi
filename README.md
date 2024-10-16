@@ -1,0 +1,1 @@
+# https-github.com-tekdi-ubi-provider-strapi

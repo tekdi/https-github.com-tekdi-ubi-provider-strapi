@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_composite_attributes_classes",
+  "info": {
+    "displayName": "class"
+  },
+  "options": {},
+  "attributes": {
+    "class": {
+      "type": "integer"
+    }
+  }
+}

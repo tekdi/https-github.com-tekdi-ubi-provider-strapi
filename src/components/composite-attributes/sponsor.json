@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_composite_attributes_sponsors",
+  "info": {
+    "displayName": "sponsor"
+  },
+  "options": {},
+  "attributes": {
+    "sponsor_name": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "enumeration",
+      "enum": [
+        "Central govt",
+        "State govt",
+        "PSU",
+        "Private"
+      ]
+    },
+    "share_percent": {
+      "type": "integer"
+    }
+  }
+}

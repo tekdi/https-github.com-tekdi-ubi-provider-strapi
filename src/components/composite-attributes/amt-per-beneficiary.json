@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_composite_attributes_amt_per_beneficiaries",
+  "info": {
+    "displayName": "amt_per_beneficiary",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "caste": {
+      "type": "enumeration",
+      "enum": [
+        "sc",
+        "st",
+        "general",
+        "obc"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Dayscholar",
+        "Hostler"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "disabled"
+      ]
+    },
+    "amount": {
+      "type": "decimal"
+    }
+  }
+}

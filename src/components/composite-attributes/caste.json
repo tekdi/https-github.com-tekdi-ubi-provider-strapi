@@ -8,10 +8,10 @@
     "caste_name": {
       "type": "enumeration",
       "enum": [
-        "sc",
-        "st",
-        "general",
-        "obc"
+        "SC",
+        "ST",
+        "OBC",
+        "General"
       ]
     }
   }

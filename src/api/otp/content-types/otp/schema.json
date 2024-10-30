@@ -4,8 +4,7 @@
   "info": {
     "singularName": "otp",
     "pluralName": "otps",
-    "displayName": "otp",
-    "description": ""
+    "displayName": "Otp"
   },
   "options": {
     "draftAndPublish": true

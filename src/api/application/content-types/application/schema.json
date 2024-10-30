@@ -4,7 +4,7 @@
   "info": {
     "singularName": "application",
     "pluralName": "applications",
-    "displayName": "applicant",
+    "displayName": "application",
     "description": ""
   },
   "options": {
@@ -12,6 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
     "email": {
       "type": "email"
     },
@@ -19,7 +25,12 @@
       "type": "string"
     },
     "gender": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ]
     },
     "order_id": {
       "type": "string"
@@ -30,54 +41,50 @@
     "submission_id": {
       "type": "string"
     },
-    "benefit": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::scholarship.scholarship",
-      "inversedBy": "applicants"
-    },
     "content_id": {
-      "type": "integer"
-    },
-    "father_name": {
-      "type": "string"
-    },
-    "samagra_id": {
       "type": "string"
     },
     "class": {
       "type": "integer"
     },
     "resident_type": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "Hosteller",
+        "Dayscholar",
+        "Other"
+      ]
     },
-    "aadhaar": {
-      "type": "string"
+    "caste": {
+      "type": "enumeration",
+      "enum": [
+        "SC",
+        "ST",
+        "OBC",
+        "General",
+        "Other"
+      ]
     },
     "marks_previous_class": {
       "type": "decimal"
     },
-    "caste": {
-      "type": "string"
-    },
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
+    "aadhaar": {
       "type": "string"
     },
     "application_status": {
-      "type": "string",
+      "type": "enumeration",
+      "enum": [
+        "submitted",
+        "approved",
+        "rejected"
+      ],
       "default": "submitted"
     },
-    "current_school_name": {
-      "type": "text"
-    },
-    "current_school_address": {
-      "type": "text"
-    },
-    "application_date": {
-      "type": "date"
+    "benefit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::benefit.benefit",
+      "inversedBy": "applications"
     }
   }
 }

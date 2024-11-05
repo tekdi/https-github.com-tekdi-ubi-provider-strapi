@@ -62,7 +62,7 @@ export interface CompositeAttributesEligibility extends Struct.ComponentSchema {
     description: '';
   };
   attributes: {
-    gender: Schema.Attribute.Enumeration<['male', 'female', 'all']>;
+    gender: Schema.Attribute.Enumeration<['male', 'female', 'all gender']>;
     marks: Schema.Attribute.Enumeration<
       [
         'Greater than 50%',

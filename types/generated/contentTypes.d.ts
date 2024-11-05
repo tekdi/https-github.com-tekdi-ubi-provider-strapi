@@ -12,7 +12,6 @@ export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    name: Schema.Attribute.String;
     email: Schema.Attribute.Email;
     phone: Schema.Attribute.String;
     gender: Schema.Attribute.String;
@@ -24,6 +23,20 @@ export interface ApiApplicationApplication extends Struct.CollectionTypeSchema {
       'api::scholarship.scholarship'
     >;
     content_id: Schema.Attribute.Integer;
+    father_name: Schema.Attribute.String;
+    samagra_id: Schema.Attribute.String;
+    class: Schema.Attribute.Integer;
+    resident_type: Schema.Attribute.String;
+    aadhaar: Schema.Attribute.String;
+    marks_previous_class: Schema.Attribute.Decimal;
+    caste: Schema.Attribute.String;
+    first_name: Schema.Attribute.String;
+    last_name: Schema.Attribute.String;
+    application_status: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'submitted'>;
+    current_school_name: Schema.Attribute.Text;
+    current_school_address: Schema.Attribute.Text;
+    application_date: Schema.Attribute.Date;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -55,6 +68,7 @@ export interface ApiOtpOtp extends Struct.CollectionTypeSchema {
     otp: Schema.Attribute.Integer;
     expiry: Schema.Attribute.DateTime;
     name: Schema.Attribute.String;
+    ABCD: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -105,6 +119,7 @@ export interface ApiScholarshipScholarship extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::application.application'
     >;
+    long_description: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -68,6 +68,7 @@ export interface ApiOtpOtp extends Struct.CollectionTypeSchema {
     otp: Schema.Attribute.Integer;
     expiry: Schema.Attribute.DateTime;
     name: Schema.Attribute.String;
+    ABCD: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

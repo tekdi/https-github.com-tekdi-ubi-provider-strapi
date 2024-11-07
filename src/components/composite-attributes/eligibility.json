@@ -11,7 +11,7 @@
       "enum": [
         "male",
         "female",
-        "all"
+        "all gender"
       ]
     },
     "marks": {

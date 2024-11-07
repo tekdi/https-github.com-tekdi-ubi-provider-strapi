@@ -23,6 +23,9 @@
     },
     "name": {
       "type": "string"
+    },
+    "ABCD": {
+      "type": "string"
     }
   }
 }

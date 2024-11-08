@@ -1,7 +1,8 @@
 {
   "collectionName": "components_composite_attributes_financial_informations",
   "info": {
-    "displayName": "financial_information"
+    "displayName": "financial_information",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,7 +19,7 @@
         "Not Applicable"
       ]
     },
-    "max_beneficiary": {
+    "max_bebeficiary": {
       "type": "integer"
     },
     "amt_per_beneficiary": {

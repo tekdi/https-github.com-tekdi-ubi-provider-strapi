@@ -4,7 +4,8 @@
   "info": {
     "singularName": "otp",
     "pluralName": "otps",
-    "displayName": "Otp"
+    "displayName": "otp",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,9 @@
       "type": "datetime"
     },
     "name": {
+      "type": "string"
+    },
+    "ABCD": {
       "type": "string"
     }
   }

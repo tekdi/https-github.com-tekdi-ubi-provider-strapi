@@ -1,55 +1,57 @@
-import type { Schema, Struct } from '@strapi/strapi';
+import type { Struct, Schema } from '@strapi/strapi';
 
-export interface CompositeAttributesAmtPerBeneficiary
-  extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_amt_per_beneficiaries';
+export interface CompositeAttributesSponsor extends Struct.ComponentSchema {
+  collectionName: 'components_composite_attributes_sponsors';
   info: {
-    displayName: 'amt_per_beneficiary';
+    displayName: 'sponsor';
   };
   attributes: {
-    amount: Schema.Attribute.Decimal;
-    caste: Schema.Attribute.Enumeration<['SC', 'ST', 'OBC', 'General']>;
-    category: Schema.Attribute.Enumeration<['male', 'female', 'disabled']>;
-    type: Schema.Attribute.Enumeration<['Dayscholar', 'Hosteller']>;
+    sponsor_name: Schema.Attribute.String;
+    entity_type: Schema.Attribute.Enumeration<
+      ['Central govt', 'State govt', 'PSU', 'Private']
+    >;
+    share_percent: Schema.Attribute.Integer;
   };
 }
 
-export interface CompositeAttributesAnnualIncome
+export interface CompositeAttributesFinancialInformation
   extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_annual_incomes';
+  collectionName: 'components_composite_attributes_financial_informations';
   info: {
-    displayName: 'annual_income';
+    displayName: 'financial_information';
+    description: '';
   };
   attributes: {
-    income: Schema.Attribute.Enumeration<
+    parent_occupation: Schema.Attribute.Enumeration<
       [
-        'Below Rs 1,00,000',
-        'Rs 1,00,001 - Rs 2,50,000',
-        'Rs 2,50,001 - Rs 5,00,000',
-        'Rs 5,00,001 - Rs 7,50,000',
-        'Above 7,50,001',
+        'Farmer (Krishisevak)',
+        'Cleanliness worker (Safai Karamchari)',
+        'Defence personel',
+        'Manual Scavengers',
+        'Tanners & Flayers',
+        'Waste Pickers',
+        'Hazardous Cleaning',
+        'Not Applicable',
       ]
+    >;
+    max_bebeficiary: Schema.Attribute.Integer;
+    amt_per_beneficiary: Schema.Attribute.Component<
+      'composite-attributes.amt-per-beneficiary',
+      true
     >;
   };
 }
 
-export interface CompositeAttributesCaste extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_castes';
+export interface CompositeAttributesFieldOfStudy
+  extends Struct.ComponentSchema {
+  collectionName: 'components_composite_attributes_field_of_studies';
   info: {
-    displayName: 'caste';
+    displayName: 'field-of_study';
   };
   attributes: {
-    caste_name: Schema.Attribute.Enumeration<['SC', 'ST', 'OBC', 'General']>;
-  };
-}
-
-export interface CompositeAttributesClass extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_classes';
-  info: {
-    displayName: 'class';
-  };
-  attributes: {
-    class: Schema.Attribute.Integer;
+    field: Schema.Attribute.Enumeration<
+      ['Engineering', 'Medical', 'Management', 'Other', 'All', 'Not Applicable']
+    >;
   };
 }
 
@@ -57,21 +59,19 @@ export interface CompositeAttributesEligibility extends Struct.ComponentSchema {
   collectionName: 'components_composite_attributes_eligibilities';
   info: {
     displayName: 'eligibility';
+    description: '';
   };
   attributes: {
-    age: Schema.Attribute.Enumeration<
+    gender: Schema.Attribute.Enumeration<['male', 'female', 'all gender']>;
+    marks: Schema.Attribute.Enumeration<
       [
-        'From 5 years - 8 years',
-        'From 9 years - 10 years',
-        'From 11 years - 13 years',
-        'From 14 years - 15 years',
-        'From 16 years - 18 years',
+        'Greater than 50%',
+        'Greater than 60%',
+        'Greater than 70%',
+        'Greater than 80%',
+        'Greater than 90%',
         'Not Applicable',
       ]
-    >;
-    annual_income: Schema.Attribute.Component<
-      'composite-attributes.annual-income',
-      true
     >;
     attendance: Schema.Attribute.Enumeration<
       [
@@ -83,9 +83,40 @@ export interface CompositeAttributesEligibility extends Struct.ComponentSchema {
         'Not Applicable',
       ]
     >;
-    caste: Schema.Attribute.Component<'composite-attributes.caste', true>;
-    class: Schema.Attribute.Component<'composite-attributes.class', true>;
+    min_qualification: Schema.Attribute.Enumeration<
+      ['Undergrade', 'Post Grad', 'PHD', 'Not Applicable']
+    >;
+    annual_income: Schema.Attribute.Enumeration<
+      [
+        'Below \u20B91,00,000',
+        'Rs 1,00,001 - Rs 2,50,000',
+        'Rs 2,50,001 - Rs 5,00,000',
+        'Rs 5,00,001 - Rs 7,50,000',
+      ]
+    >;
     disability: Schema.Attribute.Boolean;
+    student_type: Schema.Attribute.Enumeration<
+      ['Day Scholar', 'Hostler', 'Both', 'Not Applicable']
+    >;
+    age: Schema.Attribute.Enumeration<
+      [
+        'From 5 years - 8 years',
+        'From 9 years - 10 years',
+        'From 11 years - 13 years',
+        'From 14 years - 16 years',
+        'From 16 years - 18 years',
+        'Not Applicable',
+      ]
+    >;
+    eligible_children_limit: Schema.Attribute.Enumeration<
+      ['Only 1', 'Only 2', 'Only 3', 'Not applicable']
+    >;
+    caste: Schema.Attribute.Component<'composite-attributes.caste', true>;
+    field_of_study: Schema.Attribute.Component<
+      'composite-attributes.field-of-study',
+      true
+    >;
+    class: Schema.Attribute.Component<'composite-attributes.class', true>;
     domicile: Schema.Attribute.Enumeration<
       [
         'All',
@@ -119,98 +150,54 @@ export interface CompositeAttributesEligibility extends Struct.ComponentSchema {
         'West Bengal',
       ]
     >;
-    eligible_children_limit: Schema.Attribute.Enumeration<
-      ['Only 1', 'Only 2', 'Only 3', 'Not Applicable']
-    >;
-    field_of_study: Schema.Attribute.Component<
-      'composite-attributes.field-of-study',
-      true
-    >;
-    gender: Schema.Attribute.Enumeration<['male', 'female', 'all gender']>;
-    marks: Schema.Attribute.Enumeration<
-      [
-        'Greater than 50%',
-        'Greater than 60%',
-        'Greater than 70%',
-        'Greater than 80%',
-        'Greater than 90%',
-        'Not Applicable',
-      ]
-    >;
-    min_qualification: Schema.Attribute.Enumeration<
-      ['Undergraduate', 'Postgraduate', 'PHD', 'Not Applicable']
-    >;
-    resident_type: Schema.Attribute.Enumeration<
-      ['Dayscholar', 'Hosteller', 'Both', 'Not Applicable']
-    >;
   };
 }
 
-export interface CompositeAttributesFieldOfStudy
+export interface CompositeAttributesClass extends Struct.ComponentSchema {
+  collectionName: 'components_composite_attributes_classes';
+  info: {
+    displayName: 'class';
+  };
+  attributes: {
+    class: Schema.Attribute.Integer;
+  };
+}
+
+export interface CompositeAttributesCaste extends Struct.ComponentSchema {
+  collectionName: 'components_composite_attributes_castes';
+  info: {
+    displayName: 'caste';
+  };
+  attributes: {
+    caste_name: Schema.Attribute.Enumeration<['sc', 'st', 'general', 'obc']>;
+  };
+}
+
+export interface CompositeAttributesAmtPerBeneficiary
   extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_field_of_studies';
+  collectionName: 'components_composite_attributes_amt_per_beneficiaries';
   info: {
-    displayName: 'field_of_study';
+    displayName: 'amt_per_beneficiary';
+    description: '';
   };
   attributes: {
-    field: Schema.Attribute.Enumeration<
-      ['Engineering', 'Medical', 'Management', 'Other', 'All', 'Not Applicable']
-    >;
-  };
-}
-
-export interface CompositeAttributesFinancialInformation
-  extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_financial_informations';
-  info: {
-    displayName: 'financial_information';
-  };
-  attributes: {
-    amt_per_beneficiary: Schema.Attribute.Component<
-      'composite-attributes.amt-per-beneficiary',
-      true
-    >;
-    max_beneficiary: Schema.Attribute.Integer;
-    parent_occupation: Schema.Attribute.Enumeration<
-      [
-        'Farmer (Krishisevak)',
-        'Cleanliness worker (Safai Karamchari)',
-        'Defence personel',
-        'Manual Scavengers',
-        'Tanners & Flayers',
-        'Waste Pickers',
-        'Hazardous Cleaning',
-        'Not Applicable',
-      ]
-    >;
-  };
-}
-
-export interface CompositeAttributesSponsors extends Struct.ComponentSchema {
-  collectionName: 'components_composite_attributes_sponsors';
-  info: {
-    displayName: 'sponsors';
-  };
-  attributes: {
-    entity_type: Schema.Attribute.Enumeration<
-      ['Central govt', 'State govt', 'PSU', 'Private']
-    >;
-    share_percent: Schema.Attribute.Integer;
-    sponsor_name: Schema.Attribute.String;
+    caste: Schema.Attribute.Enumeration<['sc', 'st', 'general', 'obc']>;
+    type: Schema.Attribute.Enumeration<['Dayscholar', 'Hostler']>;
+    category: Schema.Attribute.Enumeration<['male', 'female', 'disabled']>;
+    amount: Schema.Attribute.Decimal;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'composite-attributes.amt-per-beneficiary': CompositeAttributesAmtPerBeneficiary;
-      'composite-attributes.annual-income': CompositeAttributesAnnualIncome;
-      'composite-attributes.caste': CompositeAttributesCaste;
-      'composite-attributes.class': CompositeAttributesClass;
-      'composite-attributes.eligibility': CompositeAttributesEligibility;
-      'composite-attributes.field-of-study': CompositeAttributesFieldOfStudy;
+      'composite-attributes.sponsor': CompositeAttributesSponsor;
       'composite-attributes.financial-information': CompositeAttributesFinancialInformation;
-      'composite-attributes.sponsors': CompositeAttributesSponsors;
+      'composite-attributes.field-of-study': CompositeAttributesFieldOfStudy;
+      'composite-attributes.eligibility': CompositeAttributesEligibility;
+      'composite-attributes.class': CompositeAttributesClass;
+      'composite-attributes.caste': CompositeAttributesCaste;
+      'composite-attributes.amt-per-beneficiary': CompositeAttributesAmtPerBeneficiary;
     }
   }
 }

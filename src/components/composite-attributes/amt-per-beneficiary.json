@@ -1,24 +1,25 @@
 {
   "collectionName": "components_composite_attributes_amt_per_beneficiaries",
   "info": {
-    "displayName": "amt_per_beneficiary"
+    "displayName": "amt_per_beneficiary",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "caste": {
       "type": "enumeration",
       "enum": [
-        "SC",
-        "ST",
-        "OBC",
-        "General"
+        "sc",
+        "st",
+        "general",
+        "obc"
       ]
     },
     "type": {
       "type": "enumeration",
       "enum": [
         "Dayscholar",
-        "Hosteller"
+        "Hostler"
       ]
     },
     "category": {

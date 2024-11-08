@@ -1,7 +1,8 @@
 {
   "collectionName": "components_composite_attributes_eligibilities",
   "info": {
-    "displayName": "eligibility"
+    "displayName": "eligibility",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -38,23 +39,29 @@
     "min_qualification": {
       "type": "enumeration",
       "enum": [
-        "Undergraduate",
-        "Postgraduate",
+        "Undergrade",
+        "Post Grad",
         "PHD",
         "Not Applicable"
       ]
     },
     "annual_income": {
-      "displayName": "annual_income",
-      "type": "component",
-      "repeatable": true,
-      "component": "composite-attributes.annual-income"
-    },
-    "resident_type": {
       "type": "enumeration",
       "enum": [
-        "Dayscholar",
-        "Hosteller",
+        "Below ₹1,00,000",
+        "Rs 1,00,001 - Rs 2,50,000",
+        "Rs 2,50,001 - Rs 5,00,000",
+        "Rs 5,00,001 - Rs 7,50,000"
+      ]
+    },
+    "disability": {
+      "type": "boolean"
+    },
+    "student_type": {
+      "type": "enumeration",
+      "enum": [
+        "Day Scholar",
+        "Hostler",
         "Both",
         "Not Applicable"
       ]
@@ -65,7 +72,7 @@
         "From 5 years - 8 years",
         "From 9 years - 10 years",
         "From 11 years - 13 years",
-        "From 14 years - 15 years",
+        "From 14 years - 16 years",
         "From 16 years - 18 years",
         "Not Applicable"
       ]
@@ -76,8 +83,26 @@
         "Only 1",
         "Only 2",
         "Only 3",
-        "Not Applicable"
+        "Not applicable"
       ]
+    },
+    "caste": {
+      "displayName": "caste",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.caste"
+    },
+    "field_of_study": {
+      "displayName": "field-of_study",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.field-of-study"
+    },
+    "class": {
+      "displayName": "class",
+      "type": "component",
+      "repeatable": true,
+      "component": "composite-attributes.class"
     },
     "domicile": {
       "type": "enumeration",
@@ -112,27 +137,6 @@
         "Uttarakhand",
         "West Bengal"
       ]
-    },
-    "disability": {
-      "type": "boolean"
-    },
-    "caste": {
-      "displayName": "caste",
-      "type": "component",
-      "repeatable": true,
-      "component": "composite-attributes.caste"
-    },
-    "field_of_study": {
-      "displayName": "field_of_study",
-      "type": "component",
-      "repeatable": true,
-      "component": "composite-attributes.field-of-study"
-    },
-    "class": {
-      "displayName": "class",
-      "type": "component",
-      "repeatable": true,
-      "component": "composite-attributes.class"
     }
   }
 }
